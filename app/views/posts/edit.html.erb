@@ -1,0 +1,7 @@
+<h1>Edit</h1>
+
+<form action="/update/<%=@editpost.id%>" method="post">
+    이름: <input type="text" name="name" value="<%= @editpost.name%>"></input><br>
+    주소: <input type="text" name="address"value="<%= @editpost.address%>"></input><br>
+    <input type="submit" value="edit">
+</form>

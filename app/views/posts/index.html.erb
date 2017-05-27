@@ -1,0 +1,10 @@
+
+<a href="/new">새 글 쓰기</a><br>
+
+<%@posts.each do |p|%>
+    <%=p.name%><br>
+    <%=p.address%><br>
+    <a href="/destroy/<%= p.id%>">[삭제]</a>
+    <a href="/edit/<%= p.id%>">[수정]</a><br>
+    <hr>
+<%end%>
