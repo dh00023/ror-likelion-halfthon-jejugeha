@@ -5,7 +5,7 @@
     <%=p.name%><br>
     <%=p.address%><br>
     
-    <%= link_to "<%= p.id %>", post_path(@post), method: :delete, data:{confirm: "삭"}
+    <%= link_to "<%= p.id %>", post_path(@post), method: :delete, data:{confirm: "삭"} 
     <a href="/edit/<%= p.id%>">[수정]</a><br>
     <hr>
 <%end%>
