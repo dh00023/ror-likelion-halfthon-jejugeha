@@ -20,7 +20,7 @@
 
 | name | type |
 |------|------|
-|title| string|
+|name| string|
 |address|string|
 |category|string|
 |x|string|
@@ -47,7 +47,7 @@ devise gem으로 생성(default값그대로)
           AddGehaIdToReviews
           AddUserIdToReviews
 
-
+2. ㄷㅎ : CRUD 변경
 
 
 
