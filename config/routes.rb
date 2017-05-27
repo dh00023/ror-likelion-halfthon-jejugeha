@@ -6,6 +6,7 @@ Rails.application.routes.draw do
     member do
       get 'search'
     end
+    resources :reviews, except: [:show, :index]
   end
   
 end
