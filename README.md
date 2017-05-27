@@ -1,4 +1,4 @@
-2017-05-27 건국대 정다혜, 이현경, 덕성여대 권민지, 경희대 한동근
+2017-05-27 건국대 정다혜, 이현경, 덕성여대 권민지, 경희대 한동훈
 
 # 제주도 게스트하우스
 
@@ -20,7 +20,7 @@
 
 | name | type |
 |------|------|
-|title| string|
+|name| string|
 |address|string|
 |category|string|
 |x|string|
@@ -47,7 +47,7 @@ devise gem으로 생성(default값그대로)
           AddGehaIdToReviews
           AddUserIdToReviews
 
-
+2. ㄷㅎ : CRUD 변경
 
 
 

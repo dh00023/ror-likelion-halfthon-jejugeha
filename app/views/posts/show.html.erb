@@ -1,0 +1,6 @@
+<h2>게스트하우스이름 : <%= @post.name %> </h2>
+<p> 주소 : <%= @post.address %></p>
+
+<%= link_to "Home" ,root_path %>
+<%= link_to "edit post" , edit_post_path %>
+<%= link_to "delete post" , post_path(@post), method: :delete, data: {confirm: "Are you sure?"} %>

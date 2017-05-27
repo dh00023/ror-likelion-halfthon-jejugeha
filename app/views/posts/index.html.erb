@@ -1,11 +1,6 @@
-
-<a href="/new">새 글 쓰기</a><br>
-
-<%@posts.each do |p|%>
-    <%=p.name%><br>
-    <%=p.address%><br>
-    
-    <%= link_to "<%= p.id %>", post_path(@post), method: :delete, data:{confirm: "삭"}
-    <a href="/edit/<%= p.id%>">[수정]</a><br>
-    <hr>
-<%end%>
+<!--index.html.erb-->
+<h2>목록</h2>
+<% @posts.each do |post| %>
+	<h2><%= link_to post.name, post %></h2>
+<% end %>
+<%= link_to "new post", new_post_path %> 
