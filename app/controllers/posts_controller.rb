@@ -4,9 +4,9 @@ class PostsController < ApplicationController
     # searchkick gem
     def search
       if params[:search].present?
-     @posts = Post.search(params[:search])
+        @posts = Post.search(params[:search])
       else
-     @posts = Post.all
+        @posts = Post.all
       end
     end
 
@@ -50,7 +50,7 @@ class PostsController < ApplicationController
     private
     
     def posts_params
-        params.require(:post).permit(:name, :address, :image, :x, :y, :category)
+        params.require(:post).permit(:name, :address, :image, :content, :category)
     end
     
     def find_posts
