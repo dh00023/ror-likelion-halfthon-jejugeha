@@ -1,0 +1,60 @@
+
+<div class="container jumbotron">
+    
+  <h1 class="display-3"><%= @post.name %> </h1>
+  <p class="lead">여기 간단한 설명이 들어어어드으으으ㅡ으러어어어어러어어 가며어어어어어어언 좋을 것 같아요요오오오</p>
+  <hr class="my-4">
+  <p>여기는 상세설며여어어엉어어어어어어엉</p>
+  <br><br>
+  
+  <div class="card">
+  <%=image_tag @post.image.url, class:"img_preview"%>
+      <div class="card-block">
+        <p class="card-text">주소: <%= @post.address %></p>
+      </div>
+    </div>
+    
+
+</div>
+
+
+
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new daum.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+geocoder.addr2coord('<%=@post.address%>', function(status, result) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === daum.maps.services.Status.OK) {
+
+        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new daum.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});    
+</script>
+
+<div class="container jumbotron mx-auto" style="width: 400px;">
+    <br><br><br><br><br>
+    <%= link_to "Home" ,root_path, class: "btn btn-secondary" %>
+    <%= link_to "Edit Post" , edit_post_path, class: "btn btn-secondary" %>
+    <%= link_to "Delete Post" , post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+    </div>

@@ -1,5 +1,5 @@
-<form action="/posts/create" method="post">
-    <input type="text" name="name" placeholder="이름"><br>
-    <input type="text" name="address" placeholder="주소"><br>
-    <input type="submit" value="create">
-</form>
+<h2>New Posts</h2>
+
+<%= render 'form' %>
+
+<%= link_to "Back", posts_path %>
