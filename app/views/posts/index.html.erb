@@ -4,7 +4,8 @@
 <%@posts.each do |p|%>
     <%=p.name%><br>
     <%=p.address%><br>
-    <a href="/destroy/<%= p.id%>">[삭제]</a>
+    
+    <%= link_to "<%= p.id %>", post_path(@post), method: :delete, data:{confirm: "삭"}
     <a href="/edit/<%= p.id%>">[수정]</a><br>
     <hr>
 <%end%>
