@@ -24,12 +24,12 @@
       <% if user_signed_in? %>
         <%= current_user.email %>
         <button type="button" class="btn btn-danger btn-sm">
-          <a data-method="delete" href="/users/sign_out" style="color: white">로그아웃</a>
+          <a data-method="delete" href="/users/sign_out" style="color: white">LOGOUT</a>
         </button>
         
       <% else %>
-        <button type="button" class="btn btn-danger btn-sm">
-          <a href="/users/sign_in" style="color: white">로그인</a>
+        <button type="button" class="btn btn-warning btn-sm">
+          <a href="/users/sign_in" style="color: white">LOGIN</a>
         </button>
         
       <% end %>
