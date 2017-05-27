@@ -1,10 +1,9 @@
-
 <div class="container jumbotron">
     
   <h1 class="display-3"><%= @post.name %> </h1>
   <p class="lead">여기 간단한 설명이 들어어어드으으으ㅡ으러어어어어러어어 가며어어어어어어언 좋을 것 같아요요오오오</p>
   <hr class="my-4">
-  <p>여기는 상세설며여어어엉어어어어어어엉</p>
+  <p><%= @post.content %></p>
   <br><br>
   
   <div class="card">
@@ -14,9 +13,15 @@
       </div>
     </div>
     
-
+    
+<div id="map" style="max-width:100%;height:350px;"></div>
 </div>
-
+<div class="container jumbotron mx-auto" style="width: 400px;">
+    <br><br><br><br><br>
+    <%= link_to "Home" ,root_path, class: "btn btn-secondary" %>
+    <%= link_to "Edit Post" , edit_post_path, class: "btn btn-secondary" %>
+    <%= link_to "Delete Post" , post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary" %>
+</div>
 
 
 <script>
@@ -51,10 +56,3 @@ geocoder.addr2coord('<%=@post.address%>', function(status, result) {
     } 
 });    
 </script>
-<br><br><br><br><br>
-<div class="container jumbotron mx-auto" style="width: 400px;">
-   
-    <%= link_to "Home" ,root_path, class: "btn btn-secondary" %>
-    <%= link_to "Edit Post" , edit_post_path, class: "btn btn-secondary" %>
-    <%= link_to "Delete Post" , post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary" %>
-    </div>
