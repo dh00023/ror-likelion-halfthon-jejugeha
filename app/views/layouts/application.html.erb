@@ -6,9 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=5675b66b16065eb31d00b49c96baf4cf&libraries=services"></script>
+  <script src="https://use.fontawesome.com/583147df63.js"></script>
 </head>
 
 <body>
+  <%= render 'layouts/nav' %>
 <!--로그인-->
   <div class="container pr-0">
     <% if user_signed_in? %>

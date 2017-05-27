@@ -22,6 +22,7 @@
 |------|------|
 |name| string|
 |address|string|
+|content|text|
 |category|string|
 |rating|string|
 |image|paperclip|
@@ -50,9 +51,4 @@ devise gem으로 생성(default값그대로)
 	- CRUD 변경
 	- searchkick
 	- daum map api
-
-
-
-
-
-
+	- modal
