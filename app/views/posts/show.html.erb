@@ -12,38 +12,39 @@
       </div>
     </div>
 
-<%= form_tag post_comments_path(@post) do %> 
-    <div class="input-field"> 
-        <%= text_area_tag :content, nil, class: "materialize-textarea", placeholder: "댓글을 작성해주세요.", required: true %> </div> 
-    <div class="input-field"> 
-        <%= button_tag "댓글 쓰기", class: "btn" %> </div> 
-<% end %>
-
-<% if @post.comments.present? %> 
-    <ul class="collection"> 
-    <% @post.comments.each do |comment| %> 
-        <li class="collection-item"> 
-            <span class="title">
-                <%= comment.user.email %>
-            </span> 
-            <span class="right">
-                <%= comment.created_at %>
-            </span> 
-            <p>
-                <%= comment.content %>
-            </p> 
-                <% if comment.user.id == current_user.id %> 
-                    <div>
-                        <%= link_to "삭제", post_comment_path(@post, comment), method: "delete" %>
-                    </div> 
-                <% end %> 
-        </li> 
-    <% end %> 
-    </ul> 
-<% end %>    
     
     
     <div id="map" style="max-width:100%;height:350px;"></div>
+        <%= form_tag post_comments_path(@post) do %> 
+            <div class="form-group mt-3">
+                <%= text_area_tag :content, nil, class: "form-control", id: "exampleTextarea" , rows: "2", required: true %>    
+            </div>
+            <%= button_tag "댓글 쓰기", class: "btn btn-secondary " %>
+        <% end %>
+
+    <% if @post.comments.present? %> 
+        <ul class="collection"> 
+        <% @post.comments.each do |comment| %> 
+            <li class="collection-item"> 
+                <span class="title">
+                    <%= comment.user.email %>
+                </span> 
+                <span class="right">
+                    <%= comment.created_at %>
+                </span> 
+                <p>
+                    <%= comment.content %>
+                </p> 
+                    <% if comment.user.id == current_user.id %> 
+                        <div>
+                            <%= link_to "삭제", post_comment_path(@post, comment), method: "delete" %>
+                        </div> 
+                    <% end %> 
+            </li> 
+        <% end %> 
+        </ul> 
+    <% end %>    
+
     <%= link_to "홈으로가기" ,root_path, class: "btn btn-secondary btn-lg btn-block mt-3" %>
     
 </div>
