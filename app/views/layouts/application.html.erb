@@ -5,19 +5,20 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=5675b66b16065eb31d00b49c96baf4cf&libraries=services"></script>
 </head>
-<body>
 
+<body>
 <!--로그인-->
-<div class="container pr-0">
-  <% if user_signed_in? %>
-    <%= current_user.email %>
-    <a data-method="delete" href="/users/sign_out">로그아웃</a>
-  <% else %>
-    <a href="/users/sign_in">로그인</a>
-    
-  <% end %>
-</div>
+  <div class="container pr-0">
+    <% if user_signed_in? %>
+      <%= current_user.email %>
+      <a data-method="delete" href="/users/sign_out">로그아웃</a>
+    <% else %>
+      <a href="/users/sign_in">로그인</a>
+      
+    <% end %>
+  </div>
 
 <%= yield %>
 

@@ -11,15 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527063923) do
+ActiveRecord::Schema.define(version: 20170527082604) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "name"
     t.string   "address"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "x"
-    t.string   "y"
     t.string   "rating"
     t.string   "category"
     t.string   "image_file_name"
