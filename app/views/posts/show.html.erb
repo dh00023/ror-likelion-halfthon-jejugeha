@@ -51,9 +51,9 @@ geocoder.addr2coord('<%=@post.address%>', function(status, result) {
     } 
 });    
 </script>
-
+<br><br><br><br><br>
 <div class="container jumbotron mx-auto" style="width: 400px;">
-    <br><br><br><br><br>
+   
     <%= link_to "Home" ,root_path, class: "btn btn-secondary" %>
     <%= link_to "Edit Post" , edit_post_path, class: "btn btn-secondary" %>
     <%= link_to "Delete Post" , post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary" %>
