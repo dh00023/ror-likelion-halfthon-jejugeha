@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
   
   resources :posts do
-    member do
+    collection do
       get 'search'
     end
     resources :reviews, except: [:show, :index]
