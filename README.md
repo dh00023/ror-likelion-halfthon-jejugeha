@@ -16,7 +16,7 @@
 
 ### 모델링
 
-1. 숙소(geha)
+1. 숙소(post)
 
 | name | type |
 |------|------|
@@ -25,24 +25,32 @@
 |category|string|
 |x|string|
 |y|string|
-|rating|number|
+|rating|string|
+|image|paperclip|
 
-2. 사진 (photo)
-
-| name | type |
-|------|------|
-|img|paperclip|
-|geha|references|
-|review|references|
-
-3. 후기(review)
+2. 후기(review)
 
 | name | type |
 |------|------|
 | title | string |
 | content | text |
 | user | references |
+| image | paperclip |
+| rating | integer |
 
-4. 회원
+3. 회원
 
 devise gem으로 생성(default값그대로)
+
+### 
+1. 현경 : geha, review 모델 생성 (1:N)
+          AddGehaIdToReviews
+          AddUserIdToReviews
+
+
+
+
+
+
+
+
