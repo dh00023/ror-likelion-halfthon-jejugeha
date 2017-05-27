@@ -1,0 +1,9 @@
+<h5>총 <%=@posts.length%>개의 게스트하우스가 검색되었습니다.</h5>
+<% @posts.each do |post| %>
+    <%=link_to post do%>
+        <div class="card">
+            <h5><%=post.category%> <%=post.name%></h5>
+            <p><%=post.address%></p> 
+        </div>
+    <%end%>
+<% end %>

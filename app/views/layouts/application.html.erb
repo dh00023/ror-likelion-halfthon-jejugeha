@@ -5,19 +5,38 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
+  
+  
+  
+  <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=5675b66b16065eb31d00b49c96baf4cf&libraries=services"></script>
+
+  <script src="https://use.fontawesome.com/583147df63.js"></script>
+</head>
+
+<body>
+  <%= render 'layouts/nav' %>
 <!--로그인-->
-<div class="container pr-0">
-  <% if user_signed_in? %>
-    <%= current_user.email %>
-    <a data-method="delete" href="/users/sign_out">로그아웃</a>
-  <% else %>
-    <a href="/users/sign_in">로그인</a>
-    
-  <% end %>
+
+<div class="container d-flex align-items-end flex-column">
+  <div class="mt-auto p-2">
+      <% if user_signed_in? %>
+        <%= current_user.email %>
+        <button type="button" class="btn btn-danger btn-sm">
+          <a data-method="delete" href="/users/sign_out" style="color: white">LOGOUT</a>
+        </button>
+        
+      <% else %>
+        <button type="button" class="btn btn-warning btn-sm">
+          <a href="/users/sign_in" style="color: white">LOGIN</a>
+        </button>
+        
+      <% end %>
+  </div>
 </div>
+    
+
+  
 
 <%= yield %>
 

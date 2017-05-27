@@ -8,9 +8,17 @@
     <%= f.text_area :address %>
   </div>
   <div class="field">
+      <%= f.label :content %>
+      <%= f.text_field :content %>
+  </div>
+  <div class="field">
+      <%= f.label :category %>
+      <%= f.text_field :category%>
+  </div> 
+  <div class="field">
       <%= f.label :image %>
       <%= f.file_field :image %>
-  </div>  
+  </div> 
   <div class="actions">
     <%= f.button :submit %>
   </div>

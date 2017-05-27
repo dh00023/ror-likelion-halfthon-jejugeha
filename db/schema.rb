@@ -29,14 +29,13 @@ ActiveRecord::Schema.define(version: 20170527104340) do
     t.string   "address"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.string   "x"
-    t.string   "y"
     t.string   "rating"
     t.string   "category"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.text     "content"
   end
 
   create_table "reviews", force: :cascade do |t|
