@@ -3,5 +3,5 @@ class Post < ActiveRecord::Base
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/    
 
   has_many :comments
-
+  searchkick
 end
