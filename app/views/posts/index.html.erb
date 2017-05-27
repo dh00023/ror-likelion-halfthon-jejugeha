@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <a href="/new">새 글 쓰기</a><br>
 
@@ -9,3 +10,11 @@
     <a href="/edit/<%= p.id%>">[수정]</a><br>
     <hr>
 <%end%>
+=======
+<!--index.html.erb-->
+<h2>목록</h2>
+<% @posts.each do |post| %>
+	<h2><%= link_to post.name, post %></h2>
+<% end %>
+<%= link_to "new post", new_post_path %> 
+>>>>>>> 339fe59b4f37a60c0ccaf01c0930db6c4d5d63df
