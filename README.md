@@ -1,24 +1,48 @@
+2017-05-27 건국대 정다혜, 이현경, 덕성여대 권민지, 경희대 한동근
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+# 제주도 게스트하우스
 
+제주도에서는 게스트하우스 이용률이 높아지고 있다.
+하지만 정보를 얻는데 어려움을 느껴 만들어 게스트하우스를 모아서 보여주는 사이트를 만들기로 했습니다.
 
-Welcome to your Rails project on Cloud9 IDE!
+### 사용할 것(gem은 되도록이면 최신 버전으로 해주세요.)
 
-To get started, just do the following:
+- `gem searchkick`
+- `gem device`
+- `gem paperclip`
+- 다음 map api
+- heroku deploy
+- github 협업
 
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://jeju-dh00023.c9users.io/).
+### 모델링
 
-Happy coding!
-The Cloud9 IDE team
+1. 숙소(geha)
 
+| name | type |
+|------|------|
+|title| string|
+|address|string|
+|category|string|
+|x|string|
+|y|string|
+|rating|number|
 
-## Support & Documentation
+2. 사진 (photo)
 
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+| name | type |
+|------|------|
+|img|paperclip|
+|geha|references|
+|review|references|
+
+3. 후기(review)
+
+| name | type |
+|------|------|
+| title | string |
+| content | text |
+| user | references |
+
+4. 회원
+
+devise gem으로 생성(default값그대로)
