@@ -3,6 +3,10 @@
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
+  <h2>로그인</h2><br>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field">
+      <%= f.label :이메일  %> 
       <%= f.email_field :email, autofocus: true %>
     </div>
   
@@ -18,11 +22,16 @@
       </div><br>
     <% end -%>
   
+      <%= f.label :비밀번호 %>
+      <%= f.password_field :password, autocomplete: "off" %>
+    </div><br>
+   
     <div class="actions">
       <%= f.submit "Log in", class: "btn btn-warning" %>
     </div>
   <% end %><hr>
   <%= render "devise/shared/links" %>
+  <%= render "devise/shared/links"%>
 </div>  
 
 

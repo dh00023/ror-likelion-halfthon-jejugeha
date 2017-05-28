@@ -1,5 +1,19 @@
-<h2>목록</h2>
-<% @posts.each do |post| %>
-	<h2><%= link_to post.name, post %></h2>
-<% end %>
-<%= link_to "new post", new_post_path %>
+<div class="container pt-3">
+	<div class="row">
+		<% @posts.each do |post| %>
+        
+			<div class="py-2 col-6 col-sm-4 col-md-3 col-lg-4">
+			
+		        <%=link_to post do%>
+		          	<div class="card">
+						<%=image_tag post.image.url, class:"card-img-top"%>
+					    <div class="card-block">
+						    <h4 class="card-title text-center font-weight-bold"><%=post.name%></h4>
+					    	<p class="card-text text-center"><%=post.address%></p>
+					  	</div>
+					</div>
+		        <%end%>
+		    </div>
+		<% end %>
+	</div>
+</div>

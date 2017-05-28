@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
     before_action :find_posts, only: [:show, :edit, :update, :destroy]
-    
+    before_action :authenticate_user!, except: [:index]
     # searchkick gem
     def search
       if params[:search].present?

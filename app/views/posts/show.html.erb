@@ -1,13 +1,12 @@
 <div class="container jumbotron">
     
   <h1 class="display-3"><%= @post.name %> </h1>
-  <p class="lead">여기 간단한 설명이 들어어어드으으으ㅡ으러어어어어러어어 가며어어어어어어언 좋을 것 같아요요오오오</p>
+  <p class="lead"><%= @post.content %></p>
   <hr class="my-4">
-  <p><%= @post.content %></p>
   <br><br>
   
   <div class="card">
-  <%=image_tag @post.image.url, class:"img_preview"%>
+  <%=image_tag @post.image.url, class: "img_preview"%>
       <div class="card-block">
         <p class="card-text">주소: <%= @post.address %></p>
       </div>
@@ -42,16 +41,44 @@
     <% end %> 
     </ul> 
 <% end %>    
+
     
     
-<div id="map" style="max-width:100%;height:350px;"></div>
+    <div id="map" style="max-width:100%;height:350px;"></div>
+        <%= form_tag post_comments_path(@post) do %> 
+            <div class="form-group mt-3">
+                <%= text_area_tag :content, nil, class: "form-control", id: "exampleTextarea" , rows: "2", required: true %>    
+            </div>
+            <%= button_tag "댓글 쓰기", class: "btn btn-secondary " %>
+        <% end %>
+
+    <% if @post.comments.present? %> 
+        <ul class="collection"> 
+        <% @post.comments.each do |comment| %> 
+            <li class="collection-item"> 
+                <span class="title">
+                    <%= comment.user.email %>
+                </span> 
+                <span class="right">
+                    <%= comment.created_at %>
+                </span> 
+                <p>
+                    <%= comment.content %>
+                </p> 
+                    <% if comment.user.id == current_user.id %> 
+                        <div>
+                            <%= link_to "삭제", post_comment_path(@post, comment), method: "delete" %>
+                        </div> 
+                    <% end %> 
+            </li> 
+        <% end %> 
+        </ul> 
+    <% end %>    
+
+    <%= link_to "홈으로가기" ,root_path, class: "btn btn-secondary btn-lg btn-block mt-3" %>
+    
 </div>
-<div class="container jumbotron mx-auto" style="width: 400px;">
-    <br><br><br><br><br>
-    <%= link_to "Home" ,root_path, class: "btn btn-secondary" %>
-    <%= link_to "Edit Post" , edit_post_path, class: "btn btn-secondary" %>
-    <%= link_to "Delete Post" , post_path(@post), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-secondary" %>
-</div>
+
 
 
 <script>
@@ -86,4 +113,120 @@ geocoder.addr2coord('<%=@post.address%>', function(status, result) {
     } 
 });    
 </script>
->>>>>>> c6ba264fd4deb7b7248bfc48bf30e38a6771d9b0
+<div class="container jumbotron">
+    
+  <h1 class="display-3"><%= @post.name %> </h1>
+  <p class="lead"><%= @post.content %></p>
+  <hr class="my-4">
+  <br><br>
+  
+  <div class="card">
+  <%=image_tag @post.image.url, class: "img_preview"%>
+      <div class="card-block">
+        <p class="card-text">주소: <%= @post.address %></p>
+      </div>
+    </div>
+
+<%= form_tag post_comments_path(@post) do %> 
+    <div class="input-field"> 
+        <%= text_area_tag :content, nil, class: "materialize-textarea", placeholder: "댓글을 작성해주세요.", required: true %> </div> 
+    <div class="input-field"> 
+        <%= button_tag "댓글 쓰기", class: "btn" %> </div> 
+<% end %>
+
+<% if @post.comments.present? %> 
+    <ul class="collection"> 
+    <% @post.comments.each do |comment| %> 
+        <li class="collection-item"> 
+            <span class="title">
+                <%= comment.user.email %>
+            </span> 
+            <span class="right">
+                <%= comment.created_at %>
+            </span> 
+            <p>
+                <%= comment.content %>
+            </p> 
+                <% if comment.user.id == current_user.id %> 
+                    <div>
+                        <%= link_to "삭제", post_comment_path(@post, comment), method: "delete" %>
+                    </div> 
+                <% end %> 
+        </li> 
+    <% end %> 
+    </ul> 
+<% end %>    
+
+    
+    
+    <div id="map" style="max-width:100%;height:350px;"></div>
+        <%= form_tag post_comments_path(@post) do %> 
+            <div class="form-group mt-3">
+                <%= text_area_tag :content, nil, class: "form-control", id: "exampleTextarea" , rows: "2", required: true %>    
+            </div>
+            <%= button_tag "댓글 쓰기", class: "btn btn-secondary " %>
+        <% end %>
+
+    <% if @post.comments.present? %> 
+        <ul class="collection"> 
+        <% @post.comments.each do |comment| %> 
+            <li class="collection-item"> 
+                <span class="title">
+                    <%= comment.user.email %>
+                </span> 
+                <span class="right">
+                    <%= comment.created_at %>
+                </span> 
+                <p>
+                    <%= comment.content %>
+                </p> 
+                    <% if comment.user.id == current_user.id %> 
+                        <div>
+                            <%= link_to "삭제", post_comment_path(@post, comment), method: "delete" %>
+                        </div> 
+                    <% end %> 
+            </li> 
+        <% end %> 
+        </ul> 
+    <% end %>    
+
+    <%= link_to "홈으로가기" ,root_path, class: "btn btn-secondary btn-lg btn-block mt-3" %>
+    
+</div>
+
+
+
+<script>
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = {
+        center: new daum.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };  
+
+// 지도를 생성합니다    
+var map = new daum.maps.Map(mapContainer, mapOption); 
+
+// 주소-좌표 변환 객체를 생성합니다
+var geocoder = new daum.maps.services.Geocoder();
+
+// 주소로 좌표를 검색합니다
+geocoder.addr2coord('<%=@post.address%>', function(status, result) {
+
+    // 정상적으로 검색이 완료됐으면 
+     if (status === daum.maps.services.Status.OK) {
+
+        var coords = new daum.maps.LatLng(result.addr[0].lat, result.addr[0].lng);
+
+        // 결과값으로 받은 위치를 마커로 표시합니다
+        var marker = new daum.maps.Marker({
+            map: map,
+            position: coords
+        });
+
+        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        map.setCenter(coords);
+    } 
+});    
+</script>
+
+

@@ -6,8 +6,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
-  
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
   
   <script type="text/javascript" src="//apis.daum.net/maps/maps3.js?apikey=5675b66b16065eb31d00b49c96baf4cf&libraries=services"></script>
 
@@ -17,27 +16,7 @@
 
 <body>
   <%= render 'layouts/nav' %>
-<!--로그인-->
 
-<div class="container d-flex align-items-end flex-column">
-  <div class="mt-auto p-2">
-      <% if user_signed_in? %>
-        <%= current_user.email %>
-        <button type="button" class="btn btn-danger btn-sm">
-          <a data-method="delete" href="/users/sign_out" style="color: white">LOGOUT</a>
-        </button>
-        
-      <% else %>
-        <button type="button" class="btn btn-warning btn-sm">
-          <a href="/users/sign_in" style="color: white">LOGIN</a>
-        </button>
-        
-      <% end %>
-  </div>
-</div>
-    
-
-  
 
 <%= yield %>
 

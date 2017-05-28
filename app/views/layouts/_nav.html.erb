@@ -1,13 +1,28 @@
-<!-- Button trigger modal -->
-<button id="searchBtn" type="button" class="btn" data-toggle="modal" data-target="#searchModal" style="background-color: #fff; color: #000; margin: 15px; border: 0; font-size: 20px; border-radius: 0;
-  position: sticky;
-  z-index: 990;
-  top: 0px;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
-  ">
-  <i class="fa fa-search" aria-hidden="true"></i>
-</button>
-
+<div class="container">
+  <!-- Button trigger modal -->
+  <button id="searchBtn" type="button" class="btn" data-toggle="modal" data-target="#searchModal" style="background-color: #fff; color: #000; margin: 15px; border: 0; font-size: 20px; border-radius: 0;
+    position: sticky;
+    z-index: 990;
+    top: 0px;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.1);
+    ">
+    <i class="fa fa-search" aria-hidden="true"></i>
+  </button>
+  <div class="d-flex align-items-end flex-column">
+      <% if user_signed_in? %>
+        <%= current_user.email %>
+        <button type="button" class="btn btn-danger btn-sm">
+          <a data-method="delete" href="/users/sign_out" style="color: white">LOGOUT</a>
+        </button>
+        
+      <% else %>
+        <button type="button" class="btn btn-warning btn-sm">
+          <a href="/users/sign_in" style="color: white">LOGIN</a>
+        </button>
+        
+      <% end %>
+  </div>
+</div>
 <!-- Modal -->
 <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
   <div class="modal-dialog" role="document">
